@@ -7,7 +7,8 @@ import {
   CreditCard, 
   FileText, 
   LogOut,
-  Dumbbell
+  Dumbbell,
+  MessageCircle
 } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 
@@ -22,6 +23,7 @@ export function Sidebar() {
     { icon: ShoppingCart, label: 'Vendas', path: '/admin/sales' },
     { icon: CreditCard, label: 'Pagamentos', path: '/admin/payments' },
     { icon: FileText, label: 'Relatórios', path: '/admin/reports' },
+    { icon: MessageCircle, label: 'Suporte', path: '/admin/support' },
   ];
 
   const handleLogout = async () => {
