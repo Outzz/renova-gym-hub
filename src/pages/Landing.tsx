@@ -1,8 +1,14 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { Dumbbell, Heart, Music } from 'lucide-react';
+import { Dumbbell } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import heroImage from '@/assets/hero-gym.jpg';
+import musculacaoImg from '@/assets/musculacao.jpg';
+import pilatesImg from '@/assets/pilates.jpg';
+import zumbaImg from '@/assets/zumba.jpg';
+import comboMusculacaoPilatesImg from '@/assets/combo-musculacao-pilates.jpg';
+import comboMusculacaoZumbaImg from '@/assets/combo-musculacao-zumba.jpg';
+import comboZumbaPilatesImg from '@/assets/combo-zumba-pilates.jpg';
 
 const Landing = () => {
   const navigate = useNavigate();
@@ -12,42 +18,42 @@ const Landing = () => {
       name: 'Musculação',
       price: 'R$ 150',
       description: 'Treinos focados em ganho de massa e força muscular',
-      icon: Dumbbell,
+      image: musculacaoImg,
       type: 'single',
     },
     {
       name: 'Pilates',
       price: 'R$ 210',
       description: 'Exercícios de alongamento e fortalecimento',
-      icon: Heart,
+      image: pilatesImg,
       type: 'single',
     },
     {
       name: 'Zumba',
       price: 'R$ 120',
       description: 'Aulas de dança fitness energéticas',
-      icon: Music,
+      image: zumbaImg,
       type: 'single',
     },
     {
       name: 'Musculação + Pilates',
       price: 'R$ 350',
       description: 'Combo completo: força e flexibilidade',
-      icon: Dumbbell,
+      image: comboMusculacaoPilatesImg,
       type: 'combo',
     },
     {
       name: 'Musculação + Zumba',
       price: 'R$ 200',
       description: 'Combo: treino de força e cardio dançante',
-      icon: Dumbbell,
+      image: comboMusculacaoZumbaImg,
       type: 'combo',
     },
     {
       name: 'Zumba + Pilates',
       price: 'R$ 299,99',
       description: 'Combo: dança fitness e alongamento',
-      icon: Music,
+      image: comboZumbaPilatesImg,
       type: 'combo',
     },
   ];
@@ -106,34 +112,36 @@ const Landing = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {plans.map((plan, index) => {
-              const Icon = plan.icon;
-              return (
-                <Card 
-                  key={index} 
-                  className="hover:shadow-elevated transition-all duration-300 hover:-translate-y-1"
-                >
-                  <CardHeader>
-                    <div className="w-12 h-12 rounded-lg bg-gradient-hero flex items-center justify-center mb-4">
-                      <Icon className="h-6 w-6 text-primary-foreground" />
-                    </div>
-                    <CardTitle className="text-2xl">{plan.name}</CardTitle>
-                    <CardDescription>{plan.description}</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="text-4xl font-bold text-primary mb-2">
-                      {plan.price}
-                      <span className="text-base text-muted-foreground font-normal">/mês</span>
-                    </div>
-                  </CardContent>
-                  <CardFooter>
-                    <Button className="w-full" onClick={() => navigate('/login')}>
-                      Contratar
-                    </Button>
-                  </CardFooter>
-                </Card>
-              );
-            })}
+            {plans.map((plan, index) => (
+              <Card 
+                key={index} 
+                className="hover-scale overflow-hidden group"
+              >
+                <div className="relative h-64 overflow-hidden">
+                  <img 
+                    src={plan.image} 
+                    alt={plan.name}
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
+                </div>
+                <CardHeader>
+                  <CardTitle className="text-2xl">{plan.name}</CardTitle>
+                  <CardDescription>{plan.description}</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-4xl font-bold bg-gradient-hero bg-clip-text text-transparent">
+                    {plan.price}
+                  </p>
+                  <p className="text-sm text-muted-foreground mt-1">por mês</p>
+                </CardContent>
+                <CardFooter>
+                  <Button className="w-full" onClick={() => navigate('/login')}>
+                    Contratar
+                  </Button>
+                </CardFooter>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
