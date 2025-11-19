@@ -10,7 +10,6 @@ import { Loader2, Eye, EyeOff, Moon, Sun } from 'lucide-react';
 import { z } from 'zod';
 import instructorImage from '@/assets/instructor-login.jpg';
 import { useTheme } from '@/hooks/useTheme';
-import { useInitializeTestUsers } from '@/hooks/useInitializeTestUsers';
 
 const loginSchema = z.object({
   email: z.string().email('E-mail inválido'),
@@ -26,7 +25,6 @@ const Login = () => {
   const navigate = useNavigate();
   const { signIn, signUp, user, userRole } = useAuth();
   const { theme, toggleTheme } = useTheme();
-  const initialized = useInitializeTestUsers();
   
   const [loginData, setLoginData] = useState({ email: '', password: '' });
   const [signupData, setSignupData] = useState({ email: '', password: '', fullName: '', phone: '' });
