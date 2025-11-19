@@ -8,6 +8,11 @@ import { ProtectedRoute } from "./components/ProtectedRoute";
 import Landing from "./pages/Landing";
 import Login from "./pages/Login";
 import AdminDashboard from "./pages/admin/Dashboard";
+import Students from "./pages/admin/Students";
+import Sales from "./pages/admin/Sales";
+import Payments from "./pages/admin/Payments";
+import Reports from "./pages/admin/Reports";
+import Support from "./pages/admin/Support";
 import StudentDashboard from "./pages/student/StudentDashboard";
 import NotFound from "./pages/NotFound";
 
@@ -28,6 +33,46 @@ const App = () => (
               element={
                 <ProtectedRoute requireRole="admin">
                   <AdminDashboard />
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/admin/students" 
+              element={
+                <ProtectedRoute requireRole="admin">
+                  <Students />
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/admin/sales" 
+              element={
+                <ProtectedRoute requireRole="admin">
+                  <Sales />
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/admin/payments" 
+              element={
+                <ProtectedRoute requireRole="admin">
+                  <Payments />
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/admin/reports" 
+              element={
+                <ProtectedRoute requireRole="admin">
+                  <Reports />
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/admin/support" 
+              element={
+                <ProtectedRoute requireRole="admin">
+                  <Support />
                 </ProtectedRoute>
               } 
             />
