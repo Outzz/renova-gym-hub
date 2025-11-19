@@ -6,8 +6,9 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { useAuth } from '@/contexts/AuthContext';
-import { Dumbbell, Loader2 } from 'lucide-react';
+import { Loader2 } from 'lucide-react';
 import { z } from 'zod';
+import instructorImage from '@/assets/instructor-login.jpg';
 
 const loginSchema = z.object({
   email: z.string().email('E-mail inválido'),
@@ -88,11 +89,16 @@ const Login = () => {
   return (
     <div className="min-h-screen flex">
       {/* Left Side - Image */}
-      <div className="hidden lg:flex lg:w-1/2 bg-gradient-hero items-center justify-center p-12">
-        <div className="text-center text-primary-foreground">
-          <Dumbbell className="h-32 w-32 mx-auto mb-8 animate-pulse" />
-          <h1 className="text-5xl font-bold mb-4">Renova Academia</h1>
-          <p className="text-xl opacity-90">Transforme seu corpo, renove sua energia</p>
+      <div className="hidden lg:flex lg:w-1/2 relative overflow-hidden">
+        <img 
+          src={instructorImage} 
+          alt="Instrutor da Renova Academia" 
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent flex items-center justify-center">
+          <div className="text-center text-white p-8">
+            <p className="text-xl opacity-90">Transforme seu corpo, renove sua energia</p>
+          </div>
         </div>
       </div>
 
