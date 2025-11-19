@@ -58,31 +58,31 @@ export default function Landing() {
         
         <div className="container relative z-10 py-20">
           <div className="max-w-3xl">
-            <div className="inline-block mb-6 px-6 py-2 bg-accent/90 backdrop-blur-sm rounded-full">
-              <p className="text-sm font-bold text-accent-foreground uppercase tracking-wide">
-                Esquenta Black Friday - Até 25/11
+            <div className="inline-block mb-6 px-6 py-2 bg-primary/90 backdrop-blur-sm rounded-full animate-fade-in">
+              <p className="text-sm font-bold text-primary-foreground uppercase tracking-wide">
+                Promoção Especial - Por tempo limitado
               </p>
             </div>
             
-            <h1 className="text-6xl md:text-7xl font-bold text-white mb-6 leading-tight">
+            <h1 className="text-6xl md:text-7xl font-bold text-white mb-6 leading-tight animate-fade-in-up animate-delay-100">
               PRIMEIRO<br />
               MÊS<br />
-              <span className="text-accent">R$ 9,90*</span>
+              <span className="text-primary">R$ 9,90*</span>
             </h1>
             
             <Button 
               size="lg" 
-              className="bg-accent hover:bg-accent/90 text-accent-foreground text-lg px-8 py-6 h-auto font-bold uppercase"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground text-lg px-8 py-6 h-auto font-bold uppercase animate-scale-in animate-delay-200"
               onClick={() => navigate('/login')}
             >
               Escolha sua Academia
             </Button>
             
-            <p className="text-white/80 text-sm mt-4">
+            <p className="text-white/80 text-sm mt-4 animate-fade-in animate-delay-300">
               *Consulte em www.renova.com.br/contratos todas as regras da promoção no regulamento e a taxa de adesão em sua unidade.
             </p>
             
-            <p className="text-white text-lg font-bold mt-8 tracking-wider">
+            <p className="text-white text-lg font-bold mt-8 tracking-wider animate-fade-in animate-delay-400">
               QUEM É RENOVA, SABE.
             </p>
           </div>
@@ -93,22 +93,22 @@ export default function Landing() {
       <section id="academias" className="py-16 bg-muted/30">
         <div className="container">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4">
-              Encontre a academia <span className="text-accent">mais próxima!</span>
+            <h2 className="text-4xl font-bold mb-4 animate-fade-in-up">
+              Encontre a academia <span className="text-primary">mais próxima!</span>
             </h2>
-            <p className="text-muted-foreground text-lg">
+            <p className="text-muted-foreground text-lg animate-fade-in-up animate-delay-100">
               Mais de 50 unidades em todo o Brasil
             </p>
           </div>
           
-          <div className="max-w-2xl mx-auto bg-card rounded-lg shadow-card p-6">
+          <div className="max-w-2xl mx-auto bg-card rounded-lg shadow-card p-6 animate-scale-in animate-delay-200">
             <div className="flex gap-4">
               <input 
                 type="text" 
                 placeholder="Digite seu CEP ou cidade"
-                className="flex-1 h-14 px-4 rounded-md border border-input bg-background"
+                className="flex-1 h-14 px-4 rounded-md border border-input bg-background transition-all focus:ring-2 focus:ring-primary"
               />
-              <Button size="lg" className="px-8 font-semibold">
+              <Button size="lg" className="px-8 font-semibold hover:scale-105 transition-transform">
                 <MapPin className="mr-2 h-5 w-5" />
                 Buscar
               </Button>
@@ -121,14 +121,14 @@ export default function Landing() {
       <section id="modalidades" className="py-20">
         <div className="container">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4">Nossas Modalidades</h2>
-            <p className="text-muted-foreground text-lg">
+            <h2 className="text-4xl font-bold mb-4 animate-fade-in-up">Nossas Modalidades</h2>
+            <p className="text-muted-foreground text-lg animate-fade-in-up animate-delay-100">
               Escolha o treino ideal para você
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <Card className="overflow-hidden group hover:shadow-elevated transition-all">
+            <Card className="overflow-hidden group hover:shadow-elevated transition-all hover:-translate-y-2 duration-300 animate-fade-in-up animate-delay-200">
               <div className="relative h-64 overflow-hidden">
                 <img 
                   src={musculacao} 
@@ -148,7 +148,7 @@ export default function Landing() {
               </CardContent>
             </Card>
 
-            <Card className="overflow-hidden group hover:shadow-elevated transition-all">
+            <Card className="overflow-hidden group hover:shadow-elevated transition-all hover:-translate-y-2 duration-300 animate-fade-in-up animate-delay-300">
               <div className="relative h-64 overflow-hidden">
                 <img 
                   src={pilates} 
@@ -168,7 +168,7 @@ export default function Landing() {
               </CardContent>
             </Card>
 
-            <Card className="overflow-hidden group hover:shadow-elevated transition-all">
+            <Card className="overflow-hidden group hover:shadow-elevated transition-all hover:-translate-y-2 duration-300 animate-fade-in-up animate-delay-400">
               <div className="relative h-64 overflow-hidden">
                 <img 
                   src={zumba} 
@@ -237,15 +237,15 @@ export default function Landing() {
       {/* CTA Section */}
       <section id="planos" className="py-20 bg-gradient-accent">
         <div className="container text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 animate-fade-in-up">
             Comece sua transformação hoje!
           </h2>
-          <p className="text-white/90 text-xl mb-8 max-w-2xl mx-auto">
+          <p className="text-white/90 text-xl mb-8 max-w-2xl mx-auto animate-fade-in-up animate-delay-100">
             Primeiro mês por apenas R$ 9,90. Não perca essa oportunidade!
           </p>
           <Button 
             size="lg" 
-            className="bg-accent hover:bg-accent/90 text-accent-foreground text-lg px-10 py-6 h-auto font-bold uppercase"
+            className="bg-white hover:bg-white/90 text-primary text-lg px-10 py-6 h-auto font-bold uppercase hover:scale-105 transition-transform animate-scale-in animate-delay-200"
             onClick={() => navigate('/login')}
           >
             Assinar Agora
