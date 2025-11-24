@@ -1,0 +1,292 @@
+### HEALTH CHECK
+GET http://localhost:3000/
+
+###
+
+### ============== USUÁRIOS ==============
+
+### Listar todos os usuários
+GET http://localhost:3000/usuarios
+
+###
+
+### Listar apenas alunos
+GET http://localhost:3000/usuarios/alunos
+
+###
+
+### Criar novo aluno
+POST http://localhost:3000/usuarios
+content-type: application/json
+
+{
+  "nome": "João Silva",
+  "email": "joao@email.com",
+  "senha": "senha123",
+  "telefone": "11999999999"
+}
+
+###
+
+### Criar admin
+POST http://localhost:3000/usuarios
+content-type: application/json
+
+{
+  "nome": "Maria Admin",
+  "email": "maria.admin@email.com",
+  "senha": "admin123",
+  "telefone": "11988888888",
+  "role": "admin"
+}
+
+###
+
+### Autenticar usuário (admin de teste)
+POST http://localhost:3000/usuarios/autenticacao
+content-type: application/json
+
+{
+  "email": "admin@renova.com",
+  "senha": "admin123"
+}
+
+###
+
+### Autenticar usuário (aluno de teste)
+POST http://localhost:3000/usuarios/autenticacao
+content-type: application/json
+
+{
+  "email": "aluno@renova.com",
+  "senha": "aluno123"
+}
+
+###
+
+### Editar usuário
+PUT http://localhost:3000/usuarios/joao@email.com
+content-type: application/json
+
+{
+  "nome": "João Silva Santos",
+  "telefone": "11977777777"
+}
+
+###
+
+### Buscar usuário por email
+GET http://localhost:3000/usuarios/email/joao@email.com
+
+###
+
+### Buscar usuários por nome
+GET http://localhost:3000/usuarios/buscar?nome=João
+
+###
+
+### Deletar usuário
+DELETE http://localhost:3000/usuarios/joao@email.com
+
+###
+
+### ============== PLANOS ==============
+
+### Listar todos os planos
+GET http://localhost:3000/planos
+
+###
+
+### Buscar plano por ID (use um ID real da resposta anterior)
+GET http://localhost:3000/planos/SEU_ID_AQUI
+
+###
+
+### Criar novo plano
+POST http://localhost:3000/planos
+content-type: application/json
+
+{
+  "name": "Yoga",
+  "price": 180.00,
+  "type": "single",
+  "description": "Aulas de yoga para relaxamento e flexibilidade"
+}
+
+###
+
+### Editar plano (use um ID real)
+PUT http://localhost:3000/planos/SEU_ID_AQUI
+content-type: application/json
+
+{
+  "price": 200.00,
+  "description": "Aulas de yoga premium com instrutor particular"
+}
+
+###
+
+### Filtrar planos por tipo (single)
+GET http://localhost:3000/planos/tipo/single
+
+###
+
+### Filtrar planos por tipo (combo)
+GET http://localhost:3000/planos/tipo/combo
+
+###
+
+### Buscar planos por nome
+GET http://localhost:3000/planos/buscar?nome=Musculação
+
+###
+
+### Deletar plano (use um ID real)
+DELETE http://localhost:3000/planos/SEU_ID_AQUI
+
+###
+
+### ============== VENDAS ==============
+
+### Listar todas as vendas
+GET http://localhost:3000/vendas
+
+###
+
+### Criar nova venda (use IDs reais de aluno e plano)
+POST http://localhost:3000/vendas
+content-type: application/json
+
+{
+  "studentId": "ID_DO_ALUNO",
+  "planId": "ID_DO_PLANO",
+  "startDate": "2025-01-01",
+  "endDate": "2025-12-31",
+  "status": "active"
+}
+
+###
+
+### Buscar venda por ID
+GET http://localhost:3000/vendas/SEU_ID_AQUI
+
+###
+
+### Buscar vendas por aluno
+GET http://localhost:3000/vendas/aluno/ID_DO_ALUNO
+
+###
+
+### Buscar venda ativa do aluno
+GET http://localhost:3000/vendas/aluno/ID_DO_ALUNO/ativa
+
+###
+
+### Buscar vendas por plano
+GET http://localhost:3000/vendas/plano/ID_DO_PLANO
+
+###
+
+### Buscar vendas ativas
+GET http://localhost:3000/vendas/status/active
+
+###
+
+### Editar venda
+PUT http://localhost:3000/vendas/ID_DA_VENDA
+content-type: application/json
+
+{
+  "status": "expired",
+  "endDate": "2025-06-30"
+}
+
+###
+
+### Deletar venda
+DELETE http://localhost:3000/vendas/ID_DA_VENDA
+
+###
+
+### ============== FATURAS ==============
+
+### Listar todas as faturas
+GET http://localhost:3000/faturas
+
+###
+
+### Criar nova fatura (use IDs reais de aluno e venda)
+POST http://localhost:3000/faturas
+content-type: application/json
+
+{
+  "studentId": "ID_DO_ALUNO",
+  "saleId": "ID_DA_VENDA",
+  "amount": 150.00,
+  "dueDate": "2025-02-01"
+}
+
+###
+
+### Buscar fatura por ID
+GET http://localhost:3000/faturas/ID_DA_FATURA
+
+###
+
+### Processar pagamento
+POST http://localhost:3000/faturas/ID_DA_FATURA/pagamento
+content-type: application/json
+
+{
+  "paymentDate": "2025-01-25",
+  "paymentMethod": "credit_card"
+}
+
+###
+
+### Editar fatura
+PUT http://localhost:3000/faturas/ID_DA_FATURA
+content-type: application/json
+
+{
+  "status": "paid",
+  "paymentDate": "2025-01-25",
+  "paymentMethod": "pix"
+}
+
+###
+
+### Buscar faturas por aluno
+GET http://localhost:3000/faturas/aluno/ID_DO_ALUNO
+
+###
+
+### Buscar faturas por venda
+GET http://localhost:3000/faturas/venda/ID_DA_VENDA
+
+###
+
+### Buscar faturas pendentes
+GET http://localhost:3000/faturas/status/pending
+
+###
+
+### Buscar faturas pagas
+GET http://localhost:3000/faturas/status/paid
+
+###
+
+### Buscar todas as faturas pendentes
+GET http://localhost:3000/faturas/pendentes
+
+###
+
+### Buscar faturas vencidas
+GET http://localhost:3000/faturas/vencidas
+
+###
+
+### Deletar fatura
+DELETE http://localhost:3000/faturas/ID_DA_FATURA
+
+###
